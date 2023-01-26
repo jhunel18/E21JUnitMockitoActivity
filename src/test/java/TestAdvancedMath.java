@@ -22,7 +22,7 @@ public class TestAdvancedMath {
     @Test
     public void testMultiplyDifferenceBy5(){
         when(basicMath.subtract(80.0, 20.0)).thenReturn(60.0);
-        Assert.assertEquals(advancedMath.multiplyDifferenceBy5(80.0,20),300.0,0);
+        Assert.assertEquals(advancedMath.multiplyDifferenceBy5(80.0,20.0),300.0,0);
     }
 
     @Test
@@ -81,6 +81,7 @@ public class TestAdvancedMath {
         given(basicMath.divide(50.0,100.0)).willReturn(0.5);
         Assert.assertEquals(advancedMath.getPercentage(50,100.0),50.0,0);
         advancedMath.getPercentage(50.0,100.0);
+
         doThrow(new ArithmeticException("Division by zero")).when(basicMath).divide(50.0,100.0);
         reset(basicMath);
         Assert.assertEquals(advancedMath.getPercentage(50,100.0),0.0,0);
