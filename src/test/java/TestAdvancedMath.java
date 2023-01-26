@@ -46,8 +46,6 @@ public class TestAdvancedMath {
     public void getPercentage(){
     when(basicMath.divide(50.0,100.0)).thenReturn(0.5);
     Assert.assertEquals(advancedMath.getPercentage(50,100.0),50.0,0);
-    advancedMath.getPercentage(50.0,100.0);
-    doThrow(new ArithmeticException("Division by zero")).when(basicMath).divide(50.0,100.0);
     reset(basicMath);
     Assert.assertEquals(advancedMath.getPercentage(50,100.0),0.0,0);
 
